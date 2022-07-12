@@ -54,7 +54,8 @@
     <visual>
       <origin rpy="1.5708 0 -1.5708" xyz="0.26 0.345 -0.91488" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/pedestal.DAE" />
+        <!-- <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/pedestal.DAE" /> -->
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/pedestal.DAE" />
       </geometry>
       <material name="darkgray" />
     </visual>
@@ -122,7 +123,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/base.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/base.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -142,7 +143,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_mp3/l0.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_mp3/l0.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -169,7 +170,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/head.STL" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/head.STL" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -209,7 +210,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_mp3/l1.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_mp3/l1.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -236,7 +237,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/l2.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/l2.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -263,7 +264,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/l3.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/l3.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -290,7 +291,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/l4.DAE" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/l4.DAE" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -330,7 +331,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_pv/l5.STL" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_pv/l5.STL" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -371,7 +372,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://sawyer_robot/sawyer_description/meshes/sawyer_mp1/l6.STL" />
+        <mesh filename="../sawyer_robot/sawyer_description/meshes/sawyer_mp1/l6.STL" />
       </geometry>
       <material name="sawyer_red" />
     </visual>
@@ -460,7 +461,7 @@
     <visual>
       <origin xyz="0.0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://wsg50/WSG50_110.stl" scale="1 1 1" />
+        <mesh filename="../wsg50/WSG50_110.stl" scale="1 1 1" />
         <!--box size="0.146 0.05 0.0735"/-->
       </geometry>
       <material name="grey">
@@ -472,7 +473,7 @@
       <origin xyz="0.0 0 0" rpy="0 0 0" />
       <geometry>
         <!--box size="0.146 0.05 0.0735"/-->
-        <mesh filename="package://wsg50/WSG50_110.stl" scale="1 1 1" />
+        <mesh filename="../wsg50/WSG50_110.stl" scale="1 1 1" />
       </geometry>
     </collision>
   </link>
@@ -522,7 +523,7 @@
     <!-- <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="../wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
          </geometry>
      </collision> -->
   </link>
@@ -614,7 +615,7 @@
     <collision>
       <!-- <origin xyz="-0.006 0 0.057" rpy="0 0 0" /> -->
       <geometry>
-        <mesh filename="package://wsg50/digit.STL" />
+        <mesh filename="../wsg50/digit.STL" />
       </geometry>
     </collision>
   </link>
@@ -648,7 +649,7 @@
     <visual>
       <origin xyz="0.0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="../wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001" />
         <!--box size="0.0175 0.03 0.024"/-->
       </geometry>
       <material name="white">
@@ -660,7 +661,7 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <!--box size="0.0175 0.03 0.024"/-->
-        <mesh filename="package://wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="../wsg50/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -699,7 +700,7 @@
     <visual>
       <origin xyz="0.003 0.015 0.057" rpy="1.57 0 -1.57" />
       <geometry>
-        <mesh filename="package://wsg50/DIGIT-WSG-50-V1.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="../wsg50/DIGIT-WSG-50-V1.STL" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="white">
         <color rgba="1. 1. 1. 1" />
@@ -709,7 +710,7 @@
     <collision>
       <origin xyz="0.003 0.015 0.057" rpy="1.57 0 -1.57" />
       <geometry>
-        <mesh filename="package://wsg50/DIGIT-WSG-50-V1.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="../wsg50/DIGIT-WSG-50-V1.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
@@ -744,7 +745,7 @@
       <!-- <origin xyz="-0.006 0 0.057" rpy="0 0 0" /> -->
       <geometry>
         <cylinder radius="0.02" length="0.05"/>
-        <!-- <mesh filename="package://wsg50/digit.STL" /> -->
+        <!-- <mesh filename="../wsg50/digit.STL" /> -->
       </geometry>
       <material name="white">
         <color rgba="1. 1. 1. 1" />
@@ -754,7 +755,7 @@
     <collision>
       <!-- <origin xyz="-0.006 0 0.057" rpy="0 0 0" /> -->
       <geometry>
-        <mesh filename="package://wsg50/digit.STL" />
+        <mesh filename="../wsg50/digit.STL" />
       </geometry>
     </collision>
   </link>
