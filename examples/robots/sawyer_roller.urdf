@@ -487,13 +487,12 @@
   <!-- GRIPPER LEFT -->
 
   <joint name="base_joint_gripper_left" type="prismatic">
-    <limit lower="-0.15" upper="-0.0027" effort="1.0" velocity="1.0" />
+    <limit lower="-0.15" upper="-0.0027" effort="100.0" velocity="100.0" />
     <origin xyz="0 0 0" rpy="0 0 0" /> <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
     <parent link="gripper_base_link" />
     <child link="gripper_left" />
     <dynamics friction="100" damping="100" />
     <axis xyz="1 0 0" />
-    <limit effort="100" velocity="100" />
   </joint>
 
   <transmission name="base_trans_left" type="pr2_mechanism_model/SimpleTransmission">
@@ -623,13 +622,12 @@
   <!-- GRIPPER RIGHT -->
 
   <joint name="base_joint_gripper_right" type="prismatic">
-    <limit lower="0.0027" upper="0.15" effort="1.0" velocity="1.0" />
+    <limit lower="0.0027" upper="0.15" effort="100.0" velocity="100.0" />
     <origin xyz="0 0 0" rpy="0 0 3.14159" />
     <parent link="gripper_base_link" />
     <child link="gripper_right" />
     <axis xyz="-1 0 0" />
     <dynamics friction="100" damping="100" />
-    <limit effort="100" velocity="100" />
   </joint>
 
   <transmission name="base_trans_right" type="pr2_mechanism_model/SimpleTransmission">
