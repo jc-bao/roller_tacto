@@ -21,25 +21,36 @@ class GraspingPolicy(torch.nn.Module):
 
     z_low, z_high = 0.05, 0.4
     dz = 0.02
-    w_open, w_close = 0.11, 0.05
+    w_open, w_close = 1.0, 0.7
     gripper_force = 20
 
-    if self.t < 50:
-      action.end_effector.position = states.object.position + [0, 0, z_high]
-      action.end_effector.orientation = [0.0, 1, 0.0, 0.0]
-      action.gripper_width = w_open
-    elif self.t < 100:
-      s = (self.t - 50) / 50
-      z = z_high - s * (z_high - z_low)
-      action.end_effector.position = states.object.position + [0, 0, z]
-    elif self.t < 150:
+    # if self.t < 20:
+    #   action.end_effector.position = states.object.position + [0, 0, z_high]
+    #   action.end_effector.orientation = [0.0, 1, 0.0, 0.0]
+    #   action.gripper_angle= w_open
+    # elif self.t < 40:
+    #   s = (self.t - 20) / 20
+    #   z = z_high - s * (z_high - z_low)
+    #   # action.end_effector.position = states.object.position + [0, 0, z]
+    #   action.end_effector.position = states.object.position
+    if self.t < 10:
       action.gripper_width = w_close
       action.gripper_force = gripper_force
-    elif self.t < 220:
-      delta = [0, 0, dz]
+    elif self.t < 20:
+      delta = [0, 0, 0.1]
       action.end_effector.position = states.robot.end_effector.position + delta
-      action.gripper_width = w_close
+      action.gripper_angle = w_close
       action.gripper_force = gripper_force
+    elif self.t < 100:
+      action.gripper_angle = w_close
+      action.gripper_force = gripper_force
+      action.pitch_l_angle = (self.t-80)/10
+      action.pitch_r_angle = (self.t-80)/10
+    elif self.t < 120:
+      action.gripper_angle = w_close
+      action.gripper_force = gripper_force
+      action.roll_l_angle = (self.t-100)/10
+      action.roll_r_angle = (self.t-100)/10
     else:
       action.gripper_width = w_close
 
@@ -62,8 +73,6 @@ def main():
   while not done:
     env.render()
     action = policy(obs)
-    action = env.action_space.new()
-    action[8] = 1
     obs, reward, done, info = env.step(action)
 
   env.close()

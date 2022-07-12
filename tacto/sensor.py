@@ -158,7 +158,7 @@ class Sensor:
             pose = np.diag([globalScaling] * 3 + [1]).dot(pose)
 
             obj_trimesh = obj_trimesh.apply_transform(pose)
-            obj_name = "{}_{}".format(obj_id, link_id)
+            obj_name = f"{obj_id}_{link_id}"
 
             self.objects[obj_name] = Link(obj_id, link_id, self.cid)
             position, orientation = self.objects[obj_name].get_pose()

@@ -64,6 +64,9 @@ class RollerEnv(gym.Env):
 
   def __init__(self, config_path=_get_default_config_path()):
     px.init(mode=p.GUI)
+    p.configureDebugVisualizer(p.COV_ENABLE_GUI, False)
+    p.resetDebugVisualizerCamera(cameraDistance=0.6, cameraYaw=90, cameraPitch=-20, cameraTargetPosition=[0.3,0,0.1])
+    p.setRealTimeSimulation(False)
     self.cfg = OmegaConf.load(config_path)
     self.robot = RollerGrapser(**self.cfg.roller_grasper)
     self.obj = px.Body(**self.cfg.object)
@@ -141,7 +144,7 @@ class RollerEnv(gym.Env):
     self.robot.reset()
 
     # Move the object to random location
-    dx, dy = np.random.randn(2) * 0.1
+    dx, dy = np.random.randn(2) * 0.0
     x, y, z = self.obj.init_base_position
     position = [x + dx, y + dy, z]
     self.obj.set_base_pose(position)
@@ -156,7 +159,7 @@ class RollerEnv(gym.Env):
       min_, max_ = depth.min(), depth.max()
       return ((depth - min_) / (max_ - min_) * 255).astype(np.uint8)
 
-    img = np.concatenate([digit.color for digit in self.obs.digits], axis=1)
+    img = np.concatenate([digit.depth for digit in self.obs.digits], axis=1)
     cv2.imshow("img", img)
     cv2.waitKey(1)
 

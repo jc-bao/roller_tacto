@@ -4,19 +4,19 @@ roller_grasper:
     use_fixed_base: True
   init_state:
     end_effector:
-      position: [0.50, 0, 0.215]
+      position: [0.50, 0, 0.2]
       # p.getQuaternionFromEuler([0, np.pi, 0])
       orientation: [0.0, 1.0, 0.0, 0.0]
-    gripper_width: 0.1
+    gripper_angle: 1.0
     pitch_r_angle: 0
     pitch_l_angle: 0
     roll_r_angle: 0
     roll_l_angle: 0
 
 object:
-  urdf_path: "objects/cube_small.urdf"
-  base_position: [0.50, 0, 0.02]
-  global_scaling: 0.6
+  urdf_path: "objects/mycube.urdf"
+  base_position: [0.50, 0, 0.04]
+  global_scaling: 1
 
 tacto:
   width: 120
