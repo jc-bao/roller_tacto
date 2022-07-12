@@ -765,16 +765,16 @@
     </link> -->
 
 
-  <joint name="joint1_left" type="revolute">
+  <joint name="joint1_left" type="prismatic">
     <origin xyz="0.0 -0.02975 0.026625" rpy="0 0 0" />
     <parent link="roller_baselink" />
     <child link="link1_left" />
-    <axis xyz="1 0 0" />
-    <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
+    <axis xyz="0 1 0" />
+    <limit effort="10.0" lower="-0.05" upper="0.0" velocity="10000" />
     <dynamics damping="0.0" friction="0.0" />
   </joint>
 
-  <joint name="joint2_left" type="revolute">
+  <joint name="joint2_left" type="fixed">
     <origin xyz="0.0 0.0 0.06" rpy="0 0 0" />
     <parent link="link1_left" />
     <child link="link2_left" />
@@ -811,16 +811,16 @@
     </joint> -->
 
 
-  <joint name="joint1_right" type="revolute">
+  <joint name="joint1_right" type="prismatic">
     <origin xyz="0.0 0.02975 0.026625" rpy="0 0 0" />
     <parent link="roller_baselink" />
     <child link="link1_right" />
-    <axis xyz="1 0 0" />
-    <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
+    <axis xyz="0 1 0" />
+    <limit effort="10.0" lower="0.0" upper="0.05" velocity="10000" />
     <dynamics damping="0.0" friction="0.0" />
   </joint>
 
-  <joint name="joint2_right" type="revolute">
+  <joint name="joint2_right" type="fixed">
     <origin xyz="0.0 0.0 0.06" rpy="0 0 0" />
     <parent link="link1_right" />
     <child link="link2_right" />
