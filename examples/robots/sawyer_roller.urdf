@@ -446,7 +446,7 @@
   <!-- Weiss Gripper WSG50 -->
 
 
-  <link name="baselink">
+  <link name="roller_baselink">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <mass value="0" />
@@ -767,7 +767,7 @@
 
   <joint name="joint1_left" type="revolute">
     <origin xyz="0.0 -0.02975 0.026625" rpy="0 0 0" />
-    <parent link="baselink" />
+    <parent link="roller_baselink" />
     <child link="link1_left" />
     <axis xyz="1 0 0" />
     <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
@@ -803,7 +803,7 @@
 
   <!-- <joint name = "joint5_left" type = "revolute">
       <origin xyz = "0.0 -0.00875 0.047625" rpy = "0 0 0"/> 
-      <parent link = "baselink" />
+      <parent link = "roller_baselink" />
       <child link= "link5_left"/>
       <axis xyz = "1 0 0" />
       <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
@@ -813,7 +813,7 @@
 
   <joint name="joint1_right" type="revolute">
     <origin xyz="0.0 0.02975 0.026625" rpy="0 0 0" />
-    <parent link="baselink" />
+    <parent link="roller_baselink" />
     <child link="link1_right" />
     <axis xyz="1 0 0" />
     <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
@@ -849,19 +849,18 @@
 
   <!-- <joint name = "joint5_right" type = "revolute">
       <origin xyz = "0.0 0.00875 0.047625" rpy = "0 0 0"/> 
-      <parent link = "baselink" />
+      <parent link = "roller_baselink" />
       <child link= "link5_right"/>
       <axis xyz = "1 0 0" />
       <limit effort="1.0" lower="-10000" upper="10000" velocity="10000" />
       <dynamics damping = "0.0" friction="0.0" />
     </joint> -->
+    <!-- ##################. Connect WSG50 to Sawyer ################## -->
+  <joint name="roller_baselink_x" type="fixed">
+    <parent link="right_hand" />
+    <child link="roller_baselink" />
+    <origin rpy="0.0 0.0 1.5708" xyz="0.0 0.0 0.0" />
+  </joint>
 
-</robot>
-<!-- ##################. Connect WSG50 to Sawyer ################## -->
-<joint name="baselink_x" type="fixed">
-  <parent link="right_hand" />
-  <child link="baselink" />
-  <origin rpy="0.0 0.0 1.5708" xyz="0.0 0.0 0.0" />
-</joint>
 
 </robot>
