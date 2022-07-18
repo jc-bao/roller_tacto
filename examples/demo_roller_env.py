@@ -21,7 +21,7 @@ class GraspingPolicy(torch.nn.Module):
 
     z_low, z_high = 0.05, 0.4
     dz = 0.02
-    w_open, w_close = 1.0, 0.7
+    w_open, w_close = 0.05, 0.02
     gripper_force = 20
 
     # if self.t < 20:

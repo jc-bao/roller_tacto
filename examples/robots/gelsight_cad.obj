@@ -1,11 +1,10 @@
 # Blender v2.66 (sub 1) OBJ File: ''
 # www.blender.org
-mtllib plane.mtl
-usemtl Material
-
+mtllib texture.mtl
 g Part 1
 
 o mesh0
+usemtl None
 v 0 0 0.0269 
 v 0.0198828 0.00216238 0.0269 
 v 0.0195324 0.00429941 0.0269 

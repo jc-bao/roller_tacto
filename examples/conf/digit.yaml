@@ -16,9 +16,9 @@ digit:
   use_fixed_base: True
 
 object:
-  urdf_path: "objects/sphere_small.urdf"
+  urdf_path: "objects/curved_cube.urdf"
   base_position: [-0.015, 0, 0.04]
-  global_scaling: 0.15
+  global_scaling: 0.008
 
 object_control_panel:
   slider_params:
@@ -26,7 +26,7 @@ object_control_panel:
     position_high: [0.005, 0.02, 0.03]
 
 pybullet_camera:
-  cameraDistance: 0.12
+  cameraDistance: 0.05
   cameraYaw: 90.
-  cameraPitch: -45.
-  cameraTargetPosition: [0, 0, 0]
+  cameraPitch: -30.
+  cameraTargetPosition: [0, 0, 0.01]

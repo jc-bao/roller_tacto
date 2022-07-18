@@ -32,16 +32,16 @@ def _overwrite(d1, d2):
 
 
 def _vectorize(s):
-  return np.r_[s.end_effector.position, s.end_effector.orientation, s.gripper_angle]
+  return np.r_[s.end_effector.position, s.end_effector.orientation, s.gripper_width]
 
 
 class RollerGrapser(px.Robot):
   end_effector_name = "right_hand"
   gripper_names = [
     "joint1_left", 
-    "joint2_left",
+    # "joint2_left",
     "joint1_right",
-    "joint2_right",
+    # "joint2_right",
   ]
   pitch_names = [
     'joint3_left', 
@@ -77,7 +77,7 @@ class RollerGrapser(px.Robot):
             low=-np.pi, high=np.pi, shape=(4,), dtype=np.float32
           ),
         },
-        "gripper_angle": spaces.Box(
+        "gripper_width": spaces.Box(
           low=0, high=np.pi/2, shape=(1,), dtype=np.float32
         ),
         "pitch_l_angle": spaces.Box(
@@ -116,7 +116,7 @@ class RollerGrapser(px.Robot):
     states = self.state_space.new()
     states.end_effector.position = np.array(ee_link.link_world_position)
     states.end_effector.orientation = np.array(ee_link.link_world_orientation)
-    states.gripper_angle = gripper_joint.joint_position
+    states.gripper_width = gripper_joint.joint_position
     states.pitch_l_angle = pitch_l.joint_position
     states.pitch_r_angle = pitch_r.joint_position
     states.roll_l_angle = roll_l.joint_position
@@ -137,10 +137,10 @@ class RollerGrapser(px.Robot):
       )
     )
 
-    joint_position[self.gripper_joint_ids[0]] = states.gripper_angle
-    joint_position[self.gripper_joint_ids[1]] = -states.gripper_angle
-    joint_position[self.gripper_joint_ids[2]] = -states.gripper_angle
-    joint_position[self.gripper_joint_ids[3]] = states.gripper_angle
+    joint_position[self.gripper_joint_ids[0]] = -states.gripper_width
+    # joint_position[self.gripper_joint_ids[1]] = -states.gripper_width
+    joint_position[self.gripper_joint_ids[1]] = states.gripper_width
+    # joint_position[self.gripper_joint_ids[3]] = states.gripper_width
     joint_position[self.pitch_joint_ids[0]] = states.pitch_l_angle
     joint_position[self.pitch_joint_ids[1]] = states.pitch_r_angle
     joint_position[self.roll_joint_ids[0]] = states.roll_l_angle
@@ -159,8 +159,8 @@ class RollerGrapser(px.Robot):
     if actions.get("gripper_force"):
       max_forces[self.gripper_joint_ids] = actions["gripper_force"]
 
-    max_forces[self.gripper_joint_ids[1]] *= 100
-    max_forces[self.gripper_joint_ids[3]] *= 100
+    # max_forces[self.gripper_joint_ids[1]] *= 100
+    # max_forces[self.gripper_joint_ids[3]] *= 100
     max_forces[self.pitch_joint_ids] *= 100
     max_forces[self.roll_joint_ids] *= 100
     self.set_joint_position(
@@ -176,7 +176,7 @@ class RollerGrapser(px.Robot):
     action.end_effector.position = pos
     if ori:
       action.end_effector.orientation = p.getQuaternionFromEuler(ori)
-    action.gripper_angle = width
+    action.gripper_width = width
     action.gripper_force = grip_force
     self.set_actions(action)
 

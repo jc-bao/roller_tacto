@@ -66,10 +66,13 @@ class RollerEnv(gym.Env):
     px.init(mode=p.GUI)
     p.configureDebugVisualizer(p.COV_ENABLE_GUI, False)
     p.resetDebugVisualizerCamera(cameraDistance=0.6, cameraYaw=90, cameraPitch=-20, cameraTargetPosition=[0.3,0,0.1])
+    roller_text = p.loadTexture(px.helper.find_file("robots/stride.jpeg"))
+    cube_text = p.loadTexture(px.helper.find_file("objects/block.png"))
     p.setRealTimeSimulation(False)
     self.cfg = OmegaConf.load(config_path)
     self.robot = RollerGrapser(**self.cfg.roller_grasper)
     self.obj = px.Body(**self.cfg.object)
+    p.changeVisualShape(self.obj.id, -1, textureUniqueId=cube_text)
     self.digits = tacto.Sensor(**self.cfg.tacto)
     self.camera = Camera()
     self.viewer = None

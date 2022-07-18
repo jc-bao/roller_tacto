@@ -7,7 +7,7 @@ roller_grasper:
       position: [0.50, 0, 0.2]
       # p.getQuaternionFromEuler([0, np.pi, 0])
       orientation: [0.0, 1.0, 0.0, 0.0]
-    gripper_angle: 1.0
+    gripper_width: 0.05
     pitch_r_angle: 0
     pitch_l_angle: 0
     roll_r_angle: 0
